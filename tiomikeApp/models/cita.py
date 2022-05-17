@@ -7,5 +7,5 @@ class Cita(models.Model):
     fecha = models.DateTimeField('fecha', auto_now_add=True)
     idMascota = models.ForeignKey(Mascota, related_name='mascota', on_delete=models.CASCADE)
     descripcion = models.CharField('descripcion', max_length=50, unique=True)
-    #idDetalleCita = models.ForeignKey(DetalleCita, related_name='detalle_cita', on_delete=models.CASCADE)
+    idDetalleCita = models.ForeignKey(DetalleCita, related_name='detalle_cita', on_delete=models.CASCADE)
     estado = models.BooleanField('estado', default=True)

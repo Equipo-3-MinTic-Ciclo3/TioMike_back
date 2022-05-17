@@ -28,7 +28,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     password = models.CharField('Password', max_length = 100)
     name = models.CharField('Name', max_length = 30)
     email = models.EmailField('Email', max_length = 100)
-    #id_rol = models.ForeignKey(rol, related_name = 'usuario', on_delete = models.CASCADE)
+    id_rol = models.ForeignKey(rol, related_name = 'usuario', on_delete = models.CASCADE)
     estado = models.BooleanField(default=1)
     
     def save(self, **kwargs):
