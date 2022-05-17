@@ -1,4 +1,8 @@
 from django.db import models
+from .cliente import Cliente
+from .genero import Genero
+from .raza import Raza
+from .tamano import Tamano
 
 class Mascota(models.Model):
 
@@ -8,7 +12,7 @@ class Mascota(models.Model):
     edadMascota = models.IntegerField('edad_mascota', default=0)
     peso = models.FloatField('peso', default=0)
     idGenero = models.ForeignKey(Genero, related_name='genero', on_delete=models.CASCADE)
-    idRaza = models.ForeignKey(raza, related_name='raza', on_delete=models.CASCADE)
+    idRaza = models.ForeignKey(Raza, related_name='raza', on_delete=models.CASCADE)
     idTamano = models.ForeignKey(Tamano, related_name='tamano', on_delete=models.CASCADE)
     historia = models.CharField('historia', max_length=300)
     imagen = models.CharField('imagen', max_length=255)

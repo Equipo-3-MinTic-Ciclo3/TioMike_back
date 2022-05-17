@@ -1,4 +1,3 @@
-from .usuario import Usuario
 from .barrio import Barrio
 from .departamento import Departamento
 from .detalleFactura import DetalleFactura
@@ -8,9 +7,10 @@ from .estado import Estado
 from .mascota import Mascota
 from .tipoIdentificacion import TipoIdentificacion
 from .raza import Raza
-from .detalleCita import DetalleCita
+from .detalle_cita import DetalleCita
 from .producto import Producto
-from .tipoProducto import TipoProducto
+from .tipo_producto import TipoProducto
+from .detalleFactura import DetalleFactura
 from .ciudad import Ciudad
 from .cliente import Cliente
 from .detalleMascota import DetalleMascota
