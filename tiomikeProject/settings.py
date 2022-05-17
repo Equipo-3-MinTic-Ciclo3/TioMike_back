@@ -72,6 +72,8 @@ REST_FRAMEWORK = {
     )
 }
 
+AUTH_USER_MODEL = 'tiomikeApp.Usuario'
+
 ROOT_URLCONF = 'tiomikeProject.urls'
 
 TEMPLATES = [

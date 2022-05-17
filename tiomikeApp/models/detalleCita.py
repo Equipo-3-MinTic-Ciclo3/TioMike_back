@@ -1,8 +1,10 @@
 from django.db import models
+from .cita import Cita
+from .producto import Producto
 
 class DetalleCita(models.Model):
-    id_detalle_cita = models.AutoField(primary_key=True)
-    #id_cita = models.ForeignKey(Cita, related_name='id_cita', on_delete=models.CASCADE)
-    #id_producto = models.ForeignKey(Producto, related_name='id_producto', on_delete=models.CASCADE)
+    idDetalleCita = models.AutoField('id_detalle_cita', primary_key=True)
+    idCita = models.ForeignKey(Cita, related_name='cita', on_delete=models.CASCADE)
+    idProducto = models.ForeignKey(Producto, related_name='producto', on_delete=models.CASCADE)
     recomendacion = models.TextField('recomendacion')
     estado = models.BooleanField('estado', default=True)
