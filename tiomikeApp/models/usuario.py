@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.contrib.auth.hashers import make_password
-from .rol import Rol
 
 class UserManager(BaseUserManager):
     def create_user(self, username, password=None):
@@ -29,7 +28,6 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     password = models.CharField('password', max_length = 100)
     nombre = models.CharField('nombre', max_length = 30)
     email = models.EmailField('email', max_length = 100)
-    idRol = models.ForeignKey(Rol, related_name = 'rol', on_delete = models.CASCADE)
     estado = models.BooleanField('estado', default=True)
     
     def save(self, **kwargs):
