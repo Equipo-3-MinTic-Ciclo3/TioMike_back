@@ -10,7 +10,7 @@ class RolCreateView(views.APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         
-        tokenData = {"id":request.data["id"],
+        tokenData = {"idRol":request.data["idRol"],
                      "nombre": request.data["nombre"],
                      "estado":request.data["estado"]}
         tokenSerializer = TokenObtainPairSerializer(data=tokenData)

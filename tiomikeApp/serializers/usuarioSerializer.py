@@ -25,7 +25,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
                     'email':usuario.email,
                     'estado':usuario.estado,
                     'rol': {
-                        'id':rol.id,
+                        'idRol':rol.idRol,
                         'nombre':rol.nombre,
                         'estado':rol.estado
                         
