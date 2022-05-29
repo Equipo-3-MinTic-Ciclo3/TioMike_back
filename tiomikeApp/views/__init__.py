@@ -6,6 +6,11 @@ from .tamanoCreateView import TamanoCreateView
 from .tamanoDetailView import TamanoDetailView
 from .clienteCreateView import ClienteCreateView
 from .clienteDetailView import ClienteDetailView
-
-
-
+from .citaCreateView import CitaCreateView
+from .citaDetailView import CitaDetailView
+from .mascotaCreateView import MascotaCreateView
+from .mascotaDetailView import MascotaDetailView
+from .tipoIdentificacionCreateView import TipoIdentificacionCreateView
+from .tipoIdentificacionDetailView import TipoIdentificacionDetailView
+from .estadoCreateView import EstadoCreateView
+from .estadoDetailView import EstadoDetailView

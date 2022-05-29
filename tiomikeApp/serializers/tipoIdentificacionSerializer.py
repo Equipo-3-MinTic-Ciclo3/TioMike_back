@@ -4,4 +4,4 @@ from rest_framework import serializers
 class TipoIdentificacionSerializer(serializers.ModelSerializer):
     class Meta:
         model = TipoIdentificacion
-        fields = []
+        fields = ['idTipoIdentificacion', 'nomTipoIdentificacion', 'estado']

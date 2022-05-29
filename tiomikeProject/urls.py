@@ -13,4 +13,12 @@ urlpatterns = [
     path('rol/<int:pk>/', views.RolDetailView.as_view()),
     path('tamano/', views.TamanoCreateView.as_view()),
     path('tamano/<int:pk>/', views.TamanoDetailView.as_view()),
+    path('cita/', views.CitaCreateView.as_view()),
+    path('cita/<int:pk>/', views.CitaDetailView.as_view()),
+    path('mascota/', views.MascotaCreateView.as_view()),
+    path('mascota/<int:pk>/', views.MascotaDetailView.as_view()),
+    path('tipoIdentificacion/', views.TipoIdentificacionCreateView.as_view()),
+    path('tipoIdentificacion/<int:pk>/', views.TipoIdentificacionDetailView.as_view()),
+    path('estado/', views.EstadoCreateView.as_view()),
+    path('estado/<int:pk>/', views.EstadoDetailView.as_view()),
 ]

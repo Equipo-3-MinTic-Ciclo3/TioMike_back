@@ -6,3 +6,7 @@ from .rolSerializer import RolSerializer
 from .tamanoSerializer import TamanoSerializer
 from .tipoIdentificacionSerializer import TipoIdentificacionSerializer
 from .usuarioSerializer import UsuarioSerializer
+from .citaSerializer import CitaSerializer
+from .mascotaSerializer import MascotaSerializer
+from .tipoIdentificacionSerializer import TipoIdentificacionSerializer
+from .estadoSerializaer import EstadoSerializer
