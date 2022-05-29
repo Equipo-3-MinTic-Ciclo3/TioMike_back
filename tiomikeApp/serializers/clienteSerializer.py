@@ -13,17 +13,28 @@ class ClienteSerializer(serializers.ModelSerializer):
     tipoIdentificacion = TipoIdentificacionSerializer()
     class Meta:
         model = Cliente
-        fields = ['idCliente', 'cliente_tipo_identificacion', 'nombres', 'apellidos', 'fechaNacimiento', 'idGenero', 'idCiudad', 'edad', 'telefono', 'email', 'direccion', 'idBarrio', 'estado']
+        fields = ['idCliente', 'cliente_tipo_identificacion', 'nombres', 'apellidos', 'fechaNacimiento', 'cliente_genero', 'cliente_ciudad', 'edad', 'telefono', 'email', 'direccion', 'cliente_barrio', 'estado']
         
     def create(self, validated_data):
-        tipoIdentificacionData = validated_data.pop('cliente_tipo_identificacion')
+        cliente_tipo_identificacionData = validated_data.pop('cliente_tipo_identificacion')
+        cliente_generoData = validated_data.pop('cliente_genero')
+        cliente_ciudadData = validated_data.pop('cliente_ciudad')
+        cliente_barrioData = validated_data.pop('cliente_barrio')
+        
         clienteInstance = Cliente.objects.create(**validated_data)
-        TipoIdentificacion.objects.create(usuario = clienteInstance, **tipoIdentificacionData)
+        
+        TipoIdentificacion.objects.create(cliente = clienteInstance, **cliente_tipo_identificacionData)
+        Genero.objects.create(cliente = clienteInstance, **cliente_generoData) 
+        Ciudad.objects.create(cliente = clienteInstance, **cliente_ciudadData)
+        Barrio.objects.create(cliente = clienteInstance, **cliente_barrioData)
         return clienteInstance
     
     def to_representation(self, obj):
         cliente = Cliente.objects.get(idCliente=obj.cliente_tipo_identificacion)
         tipoIdentificacion = TipoIdentificacion.objects.get(cliente=obj.cliente_tipo_identificacion)
+        genero = Genero.objects.get(cliente=obj.cliente_genero)
+        ciudad = Ciudad.objects.get(cliente=obj.cliente_ciudad)
+        barrio = Barrio.objects.get(cliente=obj.cliente_barrio)
         return {
                     'idCliente':cliente.idCliente, 
                     'nombres':cliente.nombres, 
@@ -37,7 +48,23 @@ class ClienteSerializer(serializers.ModelSerializer):
                     'tipoIdentificacion': {
                         'idTipoIdentificacion':tipoIdentificacion.idTipoIdentificacion,
                         'nomTipoIdentificacion':tipoIdentificacion.nomTipoIdentificacion,
-                        'estado':tipoIdentificacion.estado
+                        'estado':tipoIdentificacion.estado,
+                        'genero':{
+                            'idGenero':genero.idGenero,
+                            'nombreGenero':genero.nombreGenero,
+                            'estado':genero.estado,
+                            'ciudad':{
+                                'idCiudad':ciudad.idCiudad,
+                                'nombreCidudad':ciudad.nombreCidudad,
+                                'idDepartamento':ciudad.idDepartamento,
+                                'barrio':{
+                                    'idBarrio':barrio.idBarrio,
+                                    'nombreBarrio':barrio.nombreBarrio,
+                                    'idCuidad':barrio.idCuidad,
+                                    'estado':barrio.idCuidad
+                                }
+                            }
+                        }
                         
                     }                    
         }
