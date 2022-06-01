@@ -1,6 +1,7 @@
 from .barrioSerializer import BarrioSerializer
 from .ciudadSerializer import CiudadSerializer
 from .clienteSerializer import ClienteSerializer
+from .departamentoSerializer import DepartamentoSerializer
 from .generoSerializer import GeneroSerializer
 from .rolSerializer import RolSerializer
 from .tamanoSerializer import TamanoSerializer

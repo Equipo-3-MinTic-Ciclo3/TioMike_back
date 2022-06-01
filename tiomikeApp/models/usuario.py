@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.contrib.auth.hashers import make_password
 
+from tiomikeApp.models.rol import Rol
+
 class UserManager(BaseUserManager):
     def create_user(self, username, password=None):
         
@@ -23,7 +25,8 @@ class UserManager(BaseUserManager):
         return usuario
     
 class Usuario(AbstractBaseUser, PermissionsMixin):
-    id = models.BigAutoField(primary_key=True)
+    id = models.BigAutoField('id_usuario', primary_key=True)
+    rol = models.ForeignKey(Rol, related_name="id_rol", on_delete=models.CASCADE)
     username = models.CharField('username', max_length = 30, unique=True)
     password = models.CharField('password', max_length = 100)
     nombre = models.CharField('nombre', max_length = 30)
