@@ -5,7 +5,7 @@ from .ciudad import Ciudad
 from .barrio import Barrio
 
 class Cliente(models.Model):
-    idCliente = models.IntegerField('id_cliente', primary_key=True)
+    idCliente = models.AutoField('id_cliente', primary_key=True)
     idTipoIdentificacion = models.ForeignKey(TipoIdentificacion, related_name='cliente_tipo_identificacion', on_delete=models.CASCADE)
     nombres = models.CharField('nombres', max_length = 30)
     apellidos = models.CharField('apellidos', max_length = 30)
