@@ -20,7 +20,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
 
     def to_representation(self, obj):
         usuario = Usuario.objects.get(id=obj.id)
-        rol = Rol.objects.get(idRol=usuario.rol.id)
+        rol = Rol.objects.get(idRol=usuario.rol.idRol)
         return {
             'id': usuario.id,
             'username': usuario.username,
